@@ -1,12 +1,14 @@
 #include <iostream>
 #include <assert.h>
+#include <string.h>
 
 using namespace std;
 
 int main(int argc, char **argv){
 	assert (argc > 1);
 	char *input_string = argv[1];
-	int string_length = sizeof(input_string);
+//	int string_length = sizeof(input_string);
+	int string_length = strlen(input_string);
 	bool check[127] = {0};
 	char c;
 	bool repeating_flag = 0;
