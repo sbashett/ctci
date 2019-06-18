@@ -2,6 +2,7 @@
 #include <string.h>
 #include <vector>
 #include <assert.h>
+#include <ctype.h>
 
 using namespace std;
 void character_frequency(char *input_string, unsigned int *counter, vector<int> *non_zero_indices){
@@ -9,7 +10,7 @@ void character_frequency(char *input_string, unsigned int *counter, vector<int> 
 	char c;
 	int index;
 	for (int i=0; i< string_length; i++){
-		c = input_string[i];
+		c = toupper(input_string[i]);
 		index = (int)c;
 		if (*(counter+index) == 0) non_zero_indices->push_back(index);
 		(*(counter+index))++;
@@ -27,21 +28,37 @@ int main(int argc, char **argv){
 	character_frequency(input_string1, counter1, &non_zero_indices1);
 	character_frequency(input_string2, counter2, &non_zero_indices2);
 
-	cout << "printing characters and their frequencies\n";
-	if (non_zero_indices1.size() != non_zero_indices2.size()) goto NEGATIVE
+	if (non_zero_indices1.size() != non_zero_indices2.size()) goto NEGATIVE;
 
 	else{
 		for (auto it=non_zero_indices1.begin(); it!=non_zero_indices1.end();it++){
-			if (counter1[*it] != counter2[*it]) goto NEGATIVE
+			if (counter1[*it] != counter2[*it]) goto NEGATIVE;
 		}
-		goto POSITIVE
+		goto POSITIVE;
 
 	}
 
-	NEGATIVE: cout << "both the strings are not permutations of each other\n"
+	NEGATIVE: {
+		cout << "both the strings ARE NOT permutations of each other\n";
+		goto PRINT_FREQUENCIES;
+		  }
+
+	POSITIVE: {
+		cout << "both the strings ARE permuations of each other\n";
+		  }
 	
-	for (auto it = non_zero_indices1.begin(); it != non_zero_indices1.end(); it++)
+
+	PRINT_FREQUENCIES:{
+	cout << "printing characters and their frequencies for string1\n";
+	for (auto it = non_zero_indices1.begin(); it != non_zero_indices1.end(); it++){
 		cout << char(*it) << ": " << counter1[*it] << '\n';
+		}
+
+	cout << "printing characters and their frequencies for string2\n";
+	for (auto it = non_zero_indices2.begin(); it != non_zero_indices2.end(); it++){
+		cout << char(*it) << ": " << counter2[*it] << '\n';
+		}
+	}
 
 	return 0;
 	
