@@ -18,7 +18,7 @@ int main(int argc, char **argv){
 	for (int i = 0; i<string_length; i++)
 	{
 		c = input_string[i];
-		index = int(c);
+		index = (int)c;
 		cout << c << ' ' << index << '\n';
 		if (index == 32) continue;
 		if (check[index]==0) check[index]=1;
