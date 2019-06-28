@@ -1,6 +1,7 @@
 #include "common_header.hpp"
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -37,8 +38,9 @@ namespace myspace{
 	}
 */
 	
+	/**************************** single lined lists ********************************/	
 	// Single linked list class definition
-	SingleLL::SingleLL() : next(NULL), data(0) {}
+	SingleLL::SingleLL() : next(NULL), data(-1) {}
 	SingleLL::SingleLL(int d) : next(NULL), data(d) {}
 	void SingleLL::appendToTail(int d){
 		SingleLL *end = new SingleLL(d);
@@ -124,5 +126,10 @@ namespace myspace{
 		return 0;
 	}
 
+	/*********************** end of single ll ***************************/
+	
+	void fill_stack(stack<int> *st1, vector<int> *array){
+		for(int i: *array) st1->push(i);
+		}
 
 } // myspace 

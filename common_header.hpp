@@ -1,4 +1,6 @@
 #include <vector>
+#include <stack>
+#include <map>
 
 using namespace std;
 
@@ -27,5 +29,37 @@ namespace myspace{
 
 	//print elements of linked list
 	int printSingleLL(SingleLL*);
+
+	//filling elements of stack
+	void fill_stack(stack<int>*, vector<int>*);
+
+
+	/********************** graph related **************************/
+	class GraphNode{
+	public:
+		vector<GraphNode*> adj;
+		string name;
+		int data;
+		bool visited; // used by dfs and bfs
+		int id; // used by dfs and bfs
+		GraphNode* parent; // used by dfs and bfs
+
+		GraphNode();
+		GraphNode(int id);
+		GraphNode(string name);
+	};
+
+	class Graph{
+	public:
+		map<int, GraphNode*> map_nodes;
+		void print_graph();
+		void clear_graph();
+		void reset_visited_flags();
+	};
+
+	void createGraph_manual(Graph&, vector<vector<int>>&); // need to change the data manually every time
+
+	bool depthSearch(GraphNode*, int, SingleLL*&);
+	bool breadthSearch(GraphNode*, int, SingleLL*&);
 
 }

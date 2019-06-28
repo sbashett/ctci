@@ -38,3 +38,5 @@ int main() {
     std::cout << '\n';
  
 }
+
+// https://www.acodersjourney.com/top-10-dumb-mistakes-avoid-c-11-smart-pointers/
