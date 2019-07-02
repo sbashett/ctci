@@ -40,3 +40,5 @@ int main() {
 }
 
 // https://www.acodersjourney.com/top-10-dumb-mistakes-avoid-c-11-smart-pointers/
+
+//http://pages.cs.wisc.edu/~driscoll/typename.html

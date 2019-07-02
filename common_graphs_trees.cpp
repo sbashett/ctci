@@ -36,7 +36,7 @@ namespace myspace{
 	void Graph::print_graph(){
 		cout << "adjacency list of graph:\n";
 
-		for(auto n : map_nodes){ // iterate over each pair object in map
+		for(auto n : this->map_nodes){ // iterate over each pair object in map
 
 			cout << n.second->id << ": ";
 			for(auto ptr_adj_nodes : n.second->adj){
@@ -48,7 +48,7 @@ namespace myspace{
 	}
 
 	void Graph::clear_graph(){
-		for(auto n : map_nodes){
+		for(auto n : this->map_nodes){
 			n.second->adj.clear(); 
 			delete n.second;
 		}
@@ -56,7 +56,7 @@ namespace myspace{
 	}
 
 	void Graph::reset_visited_flags() {
-		for(auto n : map_nodes) n.second->visited=false;
+		for(auto n : this->map_nodes) n.second->visited=false;
 	}
 
 	bool depthSearch(GraphNode* ptr_source_node, int des_id, SingleLL*& path_seq){
@@ -130,6 +130,31 @@ namespace myspace{
 		}
 
 		return pathExist;
+	}
+
+	/*********************** trees **************************/
+
+	void print_binary_tree(BinTreeNode* head, TreeTraverseMode order){
+
+		if(order==INORDER){
+			if(head->left != NULL) print_binary_tree(head->left, order);
+			cout << head->data << ", ";
+			if(head->right != NULL) print_binary_tree(head->right, order);
+		}
+
+		else if(order==PREORDER){
+			cout << head->data << ", ";
+			if(head->left != NULL) print_binary_tree(head->left, order);
+			if(head->right != NULL) print_binary_tree(head->right, order);			
+		}
+
+		else if(order==POSTORDER){
+			if(head->left != NULL) print_binary_tree(head->left, order);
+			if(head->right != NULL) print_binary_tree(head->right, order);			
+			cout << head->data << ", ";
+		}
+
+		else cout << "given traversal order is not valid";
 	}
 
 

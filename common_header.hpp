@@ -35,6 +35,7 @@ namespace myspace{
 
 
 	/********************** graph related **************************/
+	// defined in coomon_graphs_trees.cpp 
 	class GraphNode{
 	public:
 		vector<GraphNode*> adj;
@@ -61,5 +62,24 @@ namespace myspace{
 
 	bool depthSearch(GraphNode*, int, SingleLL*&);
 	bool breadthSearch(GraphNode*, int, SingleLL*&);
+
+	/************************************************************************/
+
+	class BinTreeNode{
+	public:
+		BinTreeNode* left;
+		BinTreeNode* right;
+		int data;
+		int level;
+		BinTreeNode* parent;
+
+		BinTreeNode() : left(NULL), right(NULL), data(0), level(-1), parent(NULL) {}
+		BinTreeNode(int d) : left(NULL), right(NULL), data(d), level(-1), parent(NULL) {}
+	};
+
+	enum TreeTraverseMode {INORDER, PREORDER, POSTORDER};
+	void print_binary_tree(BinTreeNode*, TreeTraverseMode);
+
+	// void buildBST();
 
 }
