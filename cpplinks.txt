@@ -1,0 +1,5 @@
+http://duramecho.com/ComputerInformation/WhyHowCppConst.html
+https://www.ibm.com/support/knowledgecenter/SSLTBW_2.2.0/com.ibm.zos.v2r2.cbclx01/cplr061.htm
+http://pages.cs.wisc.edu/~driscoll/typename.html
+https://www.geeksforgeeks.org/whats-difference-between-array-and-array-for-int-array5/
+https://www.learncpp.com/cpp-tutorial/6-14-pointers-to-pointers/
