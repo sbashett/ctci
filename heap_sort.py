@@ -4,7 +4,11 @@ class BinaryHeap():
 		self.elements = elements
 		self.heapSize = len(self.elements)
 		self.arrayLength = len(self.elements)
-		self.MAXMIN = MAXMIN # True for max heap and false for min heap
+		self.MAXMIN = MAXMIN
+		if MAXMIN:# True for max heap and false for min heap
+			self.heapify = self.maxHeapify
+		else:
+			self.heapify = self.minHeapify
 
 	def __repr__(self):
 		ret_str = ""
@@ -31,7 +35,7 @@ class BinaryHeap():
 		return (index << 1) + 2
 
 	def parent(self,index):
-		return ((index+1) >>> 1) -1
+		return ((index+1) >> 1) -1
 
 	def swap(self,index1, index2):
 		tempSwap = self.elements[index1]
@@ -69,12 +73,6 @@ class BinaryHeap():
 		if smallest != index:
 			self.swap(smallest, index)
 			self.minHeapify(smallest)
-
-	def heapify(self,index):
-		if self.MAXMIN == True:
-			self.maxHeapify(index)
-		else:
-			self.minHeapify(index)
 
 	def buildHeap(self):
 		for index in range((self.heapSize//2), -1, -1):

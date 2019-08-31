@@ -14,7 +14,8 @@ void print_array(vector<int>& arr){
 }
 
 void generate_permutations(vector<int> input_array, int size, int& count){
-
+	// heaps algorithm: generates (n-1)! permutations of first n-1 elements by ending with the current last element
+	// if n is odd swap first and last element and if n even swap ith and last element
 	if (size == 1){
 		print_array(input_array);
 		count++;
@@ -35,8 +36,8 @@ void generate_permutations(vector<int> input_array, int size, int& count){
 
 int main(void){
 
-	vector<int> input_array{1,2,3,4,5,6,7,8};
-	// vector<int> input_array{1,2,3};
+	// vector<int> input_array{1,2,3,4,5,6,7,8};
+	vector<int> input_array{1,2,3};
 	int count = 0;
 
 	generate_permutations(input_array, static_cast<int>(input_array.size()), count);
